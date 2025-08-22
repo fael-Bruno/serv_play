@@ -85,17 +85,18 @@ function proxyWithFilter(path) {
   });
 }
 
-// Rotas
-app.use("/sportv1", proxyWithFilter("sportv1"));
+// Rotas atualizadas
 app.use("/premiere", proxyWithFilter("premiere"));
-app.use("/premiere2", proxyWithFilter("premiere2"));
 app.use("/primevideo", proxyWithFilter("primevideo"));
 app.use("/primevideo2", proxyWithFilter("primevideo2"));
+app.use("/sportv", proxyWithFilter("sportv"));
+app.use("/sportv2", proxyWithFilter("sportv2"));
 
 // Health check
 app.get("/", (req, res) => {
-  res.type("text/plain").send("✅ serv-play rodando. Rotas: /sportv1, /premiere, /premiere2, /primevideo, /primevideo2");
+  res.type("text/plain").send("✅ serv-play rodando. Rotas: /premiere, /primevideo, /primevideo2, /sportv, /sportv2");
 });
+
 
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
